@@ -5,18 +5,55 @@ path planning, and PX4 offboard control.
 
 ## Packages
 
-- **global_planner_3d**
-  - 3D grid-based A* planner
-  - Random obstacle generation
-  - Path reduction for PX4
 
-- **px4_odometry_vis**
-  - Converts PX4 odometry to ENU
-  - RViz visualization using mesh markers
+### **global_planner_3d**
 
-- **path_offboard_control**
-  - PX4 offboard position control
-  - Follows reduced waypoint paths
+**Responsibilities:**
+- Generate random 3D occupancy grid
+- Publish occupied cells as `PointCloud2`
+- Subscribe to vehicle pose (ENU)
+- Generate random goals
+- Run A* planner in 3D
+- Publish:
+  - Full global path
+  - Reduced PX4 path (direction-change points)
+
+---
+
+### **px4_odometry_vis**
+
+**Responsibilities:**
+- Subscribe to PX4 `VehicleOdometry` (NED frame)
+- Convert pose to ROS ENU frame
+- Publish:
+  - `geometry_msgs/PoseStamped`
+  - `visualization_msgs/Marker` (mesh-based drone model)
+
+---
+
+### **path_offboard_control**
+
+**Responsibilities:**
+- Subscribe to reduced path (`/path`)
+- Subscribe to vehicle pose in ENU frame
+- Enable PX4 offboard mode
+- Arm the vehicle
+- Follow path waypoint-by-waypoint
+
+**PX4 Interface:**
+
+**Publishers:**
+- `/fmu/in/offboard_control_mode`
+- `/fmu/in/trajectory_setpoint`
+- `/fmu/in/vehicle_command`
+
+**Subscribers:**
+- `/path` (`nav_msgs/Path`)
+- `/vehicle_pose_enu` (`geometry_msgs/PoseStamped`, ENU)
+
+**Notes:**
+- ENU → NED conversion is applied for PX4 setpoints
+- Dummy setpoints are sent before offboard activation
 
 ## Requirements
 
