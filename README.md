@@ -43,8 +43,7 @@ path planning, and PX4 offboard control.
 ## Simulation Video
 
 <p align="center">
-  <a href="videos/demo.mp4">
-    <img src="images/video_preview.png" width="700">
+  <a href="media/rviz_video.mp4">
   </a>
 </p>
 
