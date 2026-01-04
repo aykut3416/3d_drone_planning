@@ -33,4 +33,21 @@ path planning, and PX4 offboard control.
 - Build them with "colcon build"
 - run start_sim.sh file in the parent folder of "PX4-Autopilot" folder
 
+## RQT Graph
+
+<p align="center">
+  <img src="media/rqt_graph.png" width="700"><br>
+  <em>Figure: Nodes and Topics</em>
+</p>
+
+## Simulation Video
+
+<p align="center">
+  <a href="videos/demo.mp4">
+    <img src="images/video_preview.png" width="700">
+  </a>
+</p>
+
+<em>Click image to play the demo video</em>
+
 
