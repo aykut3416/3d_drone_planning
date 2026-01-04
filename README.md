@@ -27,8 +27,10 @@ path planning, and PX4 offboard control.
 
 ## Build Instructions
 
-```bash
-cd ros2_ws
-source /opt/ros/humble/setup.bash
-colcon build
-source install/setup.bash
+- Install QGroundControl-x86_64.AppImage and make it executable and run.
+- Install PX4 and Micro XRCE-DDS steps as in https://docs.px4.io/main/en/ros2/user_guide
+- Download packages into your ros2 workspace src folder
+- Build them with "colcon build"
+- run start_sim.sh file in the parent folder of "PX4-Autopilot" folder
+
+
