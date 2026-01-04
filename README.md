@@ -44,6 +44,7 @@ path planning, and PX4 offboard control.
 
 <p align="center">
   <a href="media/rviz_video.mp4">
+    <img src="images/video_preview.png" width="700">
   </a>
 </p>
 
